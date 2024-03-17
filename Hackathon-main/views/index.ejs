@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Smart Home Control</title>
+<link rel="stylesheet" href="styles/Style.css">
+</head>
+<body>
+    <div class="head">
+        <p class="heading">Smart Home</p>
+    </div>
+<div class="container">
+  
+    <div class="device">
+        <h1>Fan</h1>
+        <p class="subheader">Control the speed of the fan</p>
+        <div class="dashboard">
+            <div <% if(locals.fanSpeed){ %>
+                    <% if(fanSpeed > 0) { %>
+                        class="fanRotate"
+                    <% } %>
+                  <% } %>
+            
+            >
+                <img class="image" src="Images/Fan.png" alt="Fan Image" class="fan-img"> 
+            </div>
+            <form action="/fan" method="POST" class="form">
+                <select name="value" class="form-select">
+                    <option value="0">Select Speed</option>
+                    <option value="0">0</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                </select>
+                <button  type="submit" name="device" value="fan">
+                    <!-- script jayega -->
+                    <%if(locals.fanSpeed){ %>
+                        <%=fanStatus %>
+
+                   <% } else {%>
+                    ON
+                    <% } %> 
+                </button>
+            </form>
+        </div>
+        <div class="status">
+            <p class="shead">
+                
+                Speed
+            </p>
+            <p class="ssubhead">
+                <%if(locals.fanSpeed){ %>
+                <%= fanSpeed %>
+                <% }else{ %>
+                    0
+                    <% } %>
+            </p>
+        </div>
+    </div>
+  
+    <div class="device">
+        <h1>Bulb</h1>
+        <p class="subheader">Tap the bulb to Turn it ON or OFF</p>
+        <div class="dashboard">
+            <form action="/bulb" method="POST" class="devices">
+                
+                <button type="submit" name="device" value="bulb" id="bulb">
+                    💡
+                </button>
+                <input type="radio" id="option1" name="value" value="1">
+                <label for="option1">ON</label><br>
+                <input type="radio" id="option2" name="value" value="0" checked>
+                <label for="option2">OFF</label>
+                <div class="status">
+                    <p class="shead">
+                        Status
+                    </p>
+                    <p class="ssubhead">
+
+                        <%if(locals.data){ %>
+                        <%= data.bulb %>
+                        <% }else{ %>
+                        OFF
+                        <% } %>
+                    </p>
+                </div>
+            </form>
+        </div>
+    </div>
+  
+    <div class="device">
+        <h1>LED</h1>
+        <p class="subheader">Select the color for the LED</p>
+        <div class="dashboard">
+            <img class="image" src="Images/ColourfulBulb.png" alt="LED Image">
+            <form action="/LED" method="POST">
+                <label for="favcolor">Select your favorite color:</label>
+                <input type="color" id="favcolor" name="value"  
+                <% if(locals.color) { %>
+                    value = <%= color %>
+                    <% }else{ %>
+                        value="#f2a978"
+                    <% } %>
+                >
+                <button class="toggle" type="submit" name="device" value="led">
+                <%  if(locals.led){ %>    
+                    <%= led  %>
+                <% }else{ %>
+                    ON
+                <% } %>
+                </button>
+            </form>
+        </div>
+        
+        <div class="status">
+            <p class="shead">
+                Color
+            </p>
+            <p class="ssubhead">
+                <%  if(locals.color){ %>    
+                    <%= color  %>
+                <% }else{ %>
+                    #f2a978
+                <% } %>
+               
+            </p>
+        </div>
+    </div>
+  
+    <div class="device">
+        <h1>Air Conditioner</h1>
+        <p class="subheader">Control the state & temp of AC</p>
+        <div class="acDashboard">
+            <img class="image" src="Images/AC.png" alt="AC Image">
+            <form action="/ac" method="POST" class="acForm">
+                <div class="tempBar">
+                    <label for="temp">Temperature</label>
+                    <input type="number" min="17" max="29" name="temp" value="22" id="temp">
+                </div>
+                <div class="acButtons">
+                    <button class="toggle" type="submit" name="state" value="1">ON</button>
+                    <button class="toggle" type="submit" name="state" value="0">OFF</button>
+                </div>
+            </form>
+        </div>
+        <div class="acStatus">
+
+            <div class="status">
+                <p class="shead">
+                    State
+                </p>
+                <p class="ssubhead">
+                    <%  if(locals.ac){ %>    
+                        <%= ac  %>
+                    <%console.log(ac)%>
+                    <% }else{ %>
+                    OFF
+                 <% } %>
+                </p>
+            </div>
+            <div class="status">
+                <p class="shead">
+                    Temp
+                </p>
+                <p class="ssubhead">
+                    <%  if(locals.temperature){ %>    
+                        <%= temperature  %>
+                        <% }else{ %>
+                            22
+                            <% } %>
+                        </p>
+                    </div>
+            </div>
+        </div>
+        </body>
+</html>
+
+

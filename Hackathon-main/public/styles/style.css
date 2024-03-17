@@ -1,0 +1,237 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Rhodium+Libre&display=swap');
+
+
+*{
+  font-family: "Poppins", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  color: white;
+}
+
+::-webkit-scrollbar{
+  display: none;
+}
+body{
+    /* background-image: url('background.jpg'); */
+    /* background-color: #13072E; */
+    background-color: #3a1e7a;
+    
+}
+ .head{
+    margin: 0px;
+ }
+ .heading{
+    font-weight: bolder;
+    font-size: 35px;
+    text-align: center;
+    color: white;
+ }
+
+ .subheading{
+    text-align: center;
+ }
+ .container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    height: 80vh;
+  }
+  .subheader{
+    opacity: 0.6;
+  }
+  .toggle{
+    border-style: none;
+    border-width: 0px;
+    border-radius: 5px;
+    /* background-color: white; */
+    box-shadow: 1px 1px 1px 1.5px rgb(0, 0, 0, 0.25); 
+    height: 50px;
+    width: 50px;
+    margin-bottom: 20px;
+  }
+  
+  .image{
+    margin-right: 70px;
+  }
+  .dashboard{
+    display: flex;
+    flex-direction:row ;
+    row-gap: 20px;
+    vertical-align: middle;
+    align-items: center;
+  }
+  .device {
+    display: flex;
+    flex-direction: column;
+    align-items:start;
+    padding: 20px;
+    margin: 20px ;
+    width: 250px;
+    height: 370px;
+    background: linear-gradient(135deg,#13072e, #3f2182);
+    border-radius: 10px;
+    box-shadow: 1px 1px 1px 3px rgba(13, 13, 13, 0.15);
+    text-align: center;
+  }
+
+  .device:hover{
+    transform: scale(1.02);
+    box-shadow: 0 0 10px 3px rgb(235, 229, 229);
+    transition: .3s;
+  }
+  .device h1 {
+    margin-bottom: 10px;
+    font-size: 24px;
+  }
+  .device p {
+    margin-bottom: 20px;
+    font-size: 16px;
+  }
+  .device img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin-bottom: 20px;
+  }
+  .controls {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+  }
+
+  .colorGrid{
+    display: flex;
+    flex-direction: column;
+    column-gap: -10px;
+  }
+
+  .speedial{
+    margin-top: 30px;
+  }
+
+  .Speed{
+    border-style: none;
+    border-width: 0px;
+    border-radius: 5px;
+    /* background-color: white; */
+    box-shadow: 1px 1px 1px 1.5px rgb(0, 0, 0, 0.08);
+    height: 30px;
+    width: 30px;
+  }
+
+  #bulb{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 3rem;
+    height: 3rem;
+    font-size: 3rem;
+    border: none;
+    cursor: pointer;
+  }
+
+  .status{
+    margin-top: 10px;
+    width: 220px;
+    height: 80px;
+    padding: 5px;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    column-gap: 0px;
+    margin-top: 5px;
+    box-shadow: 1px 1px 1px 1.5px rgb(0, 0, 0, 0.25); 
+ }
+ .status:hover{
+    cursor: pointer;
+    opacity: 0.5;
+ }
+ .shead{
+    text-align: left;
+    padding-left:10px;
+    opacity: 0.7;
+    margin-bottom: 0px;
+ }
+ .ssubhead{
+    margin-top: 0px;
+    text-align: left;
+    padding-left:10px;
+    font-size: 8px;
+ }   
+ .acform{
+    display: flex;
+    flex-direction:column;
+ }
+ .tempBar{
+    margin-bottom: 10px;
+    width: 100px;
+ }
+
+ [type="number"]{
+    width: 5rem;
+    height: 2rem;
+    border-style: none;
+    box-shadow: 1px 1px 1px 1.5px rgb(0, 0, 0, 0.08); 
+    background: none;
+ }
+ .acDashboard{
+    display: flex;
+    flex-direction: row;
+    vertical-align: middle;
+    align-items: center;
+    align-items: center;
+ }
+
+ .form-select{
+    border-style: none;
+    outline: none;
+    box-shadow: 1px 1px 1px 1.5px rgb(0, 0, 0, 0.15);
+    margin-bottom: 10px;
+    width: 9rem;
+    height: 3rem;
+    background-color: #3a1e7a;
+ }
+
+button{
+    background: none;
+}
+
+select{
+    background: none;
+}
+
+.acStatus{
+    display: flex;
+    margin:0 auto;
+    gap: 10px;
+
+}
+
+.acStatus>div{
+    width: 110px;
+    height: 100px;
+}
+
+.fanRotate{
+  width: 50px;
+  height: 50px;
+  margin-right: 70px;
+  margin-top: 0;
+  animation: rotateFan 1s linear 0s infinite forwards;
+  position: relative;
+}
+
+.fan-img{
+  width: 100%;
+  height: 100%;
+  position: absolute;
+}
+@keyframes rotateFan {
+  0%{
+    transform: rotate(0deg);
+  }
+  100%{
+    transform: rotate(360deg);
+  }
+}
